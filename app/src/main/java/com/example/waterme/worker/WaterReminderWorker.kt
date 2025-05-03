@@ -17,6 +17,7 @@
 package com.example.waterme.worker
 
 import android.content.Context
+import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.waterme.R
@@ -30,9 +31,13 @@ class WaterReminderWorker(
 
         val plantName = inputData.getString(nameKey)
 
+        Log.d("WaterReminderWorker", "Worker triggered for $plantName")
+
         makePlantReminderNotification(
             applicationContext.resources.getString(R.string.time_to_water, plantName),
+
             applicationContext
+
         )
 
         return Result.success()
