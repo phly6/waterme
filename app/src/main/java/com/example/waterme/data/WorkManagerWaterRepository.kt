@@ -37,6 +37,7 @@ class WorkManagerWaterRepository(context: Context) : WaterRepository {
         data.putString(WaterReminderWorker.nameKey, plantName)
 
         val workRequestBuilder = OneTimeWorkRequestBuilder<WaterReminderWorker>()
+            //Commented out to debug notification issue. Manually triggers notification.
             .setInitialDelay(duration, unit)
             .setInputData(data.build())
             .build()

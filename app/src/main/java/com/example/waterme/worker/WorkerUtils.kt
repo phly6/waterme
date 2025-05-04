@@ -69,7 +69,7 @@ fun makePlantReminderNotification(
         .setAutoCancel(true)
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
         NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, builder.build())
     }
 }
